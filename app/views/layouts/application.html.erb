@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <nav>
+      <% if current_user %>
+          <%= link_to "Cerrar Session" , destroy_user_session_path , method: :delete %>
+          <%= link_to "Editar Perfil" , edit_user_registration_path %>
+          <span>Logeado: <%= current_user.email %></span>
+      <% else %>
+        <%= link_to "Iniciar Session" , new_user_session_path %>
+        <%= link_to "Registrate" , new_user_registration_path  %>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>

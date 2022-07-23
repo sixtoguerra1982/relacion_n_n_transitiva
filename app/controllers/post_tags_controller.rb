@@ -1,4 +1,5 @@
 class PostTagsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post_tag, only: %i[ show edit update destroy ]
 
   # GET /post_tags or /post_tags.json
