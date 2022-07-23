@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     # @posts = Post.all
-     @posts = Post.includes(:post_tags).references(:post_tags)
+    @posts = Post.includes(:tags).references(:tags)
   end
 
   # GET /posts/1 or /posts/1.json
