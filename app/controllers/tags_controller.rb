@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_role
   before_action :set_tag, only: %i[ show edit update destroy ]
   
   # GET /tags or /tags.json
@@ -67,5 +68,13 @@ class TagsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def tag_params
       params.require(:tag).permit(:name)
+    end
+
+    def check_role
+      # byebug
+      if current_user.role != "editor"
+        redirect_to root_path, notice: "Acceso no Autorizado !!!"
+      end  
+
     end
 end
