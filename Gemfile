@@ -63,3 +63,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-erd', group: :development
 gem 'devise'
 gem 'faker'
+gem 'rspec-rails'
+gem 'rails-controller-testing'
